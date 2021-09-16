@@ -6,6 +6,7 @@
 package com.mycompany.lab5;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,11 +14,15 @@ import java.util.ArrayList;
  */
 public class City {
     private String name;
-    private ArrayList<Road> roads;
+    private List<Road> roads = new ArrayList();
 
-    public City(String name, ArrayList<Road> roads) {
+    public City(String name,List<Road> roads) {
         this.name = name;
         this.roads = roads;
+    }
+
+    public City(String name) {
+        this.name = name;
     }
     
     public void print(){
@@ -27,4 +32,17 @@ public class City {
             road.print();
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Road> getRoads() {
+        return roads;
+    }
+    
+    public void addToCity(Road road){
+        roads.add(road);
+    }
+    
 }

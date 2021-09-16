@@ -10,18 +10,16 @@ package com.mycompany.lab5;
  * @author Seth
  */
 public class Road {
-    private String name;
     private String destination;
-    private double length;
+    private String length;
 
-    public Road(String name, String destination, double length) {
-        this.name = name;
+    public Road(String destination, String length) {
         this.destination = destination;
         this.length = length;
     }
 
     public void print() {
-        System.out.printf("Name: %s, Destination: %s, Length: %f mi %n", name, destination, length);
+        System.out.printf("Destination: %s, Length: %s mi %n",destination, length);
     }
     
     
