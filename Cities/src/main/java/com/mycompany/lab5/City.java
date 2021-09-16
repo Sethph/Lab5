@@ -5,6 +5,11 @@
  */
 package com.mycompany.lab5;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +18,11 @@ import java.util.List;
  * @author Seth
  */
 public class City {
+
     private String name;
     private List<Road> roads = new ArrayList();
 
-    public City(String name,List<Road> roads) {
+    public City(String name, List<Road> roads) {
         this.name = name;
         this.roads = roads;
     }
@@ -24,11 +30,11 @@ public class City {
     public City(String name) {
         this.name = name;
     }
-    
-    public void print(){
+
+    public void print() {
         System.out.printf("City Name: %s%n ", name);
         System.out.println("Roads:");
-        for(Road road : roads){
+        for (Road road : roads) {
             road.print();
         }
         System.out.println("");
@@ -41,9 +47,18 @@ public class City {
     public List<Road> getRoads() {
         return roads;
     }
-    
-    public void addToCity(Road road){
+
+    public void addToCity(Road road) {
         roads.add(road);
     }
-    
+
+    private void write() throws FileNotFoundException {
+        try ( PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream("cities.txt"), "UTF-8"))) {
+            for(Road road : this.roads){
+                out.printf("%s;%s;%s", name,road.getDestination(),road.getLength());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

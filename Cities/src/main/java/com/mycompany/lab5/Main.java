@@ -9,13 +9,19 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,12 +53,8 @@ public class Main {
        
         } 
         
-        for(City city:cities){
-            city.print();
-        }
-        
     }
-    
+     
     private static void addToCity(HashSet<City> cities, Road road, String cityName){
         for(City city : cities){
             if(city.getName().equals(cityName)){

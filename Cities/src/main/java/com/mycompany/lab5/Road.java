@@ -21,6 +21,14 @@ public class Road {
     public void print() {
         System.out.printf("    Destination: %s, Length: %s mi %n",destination, length);
     }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getLength() {
+        return length;
+    }
     
     
 }
