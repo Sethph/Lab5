@@ -46,6 +46,11 @@ public class Main {
             }
        
         } 
+        
+        for(City city:cities){
+            city.print();
+        }
+        
     }
     
     private static void addToCity(HashSet<City> cities, Road road, String cityName){

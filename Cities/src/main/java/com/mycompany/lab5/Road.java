@@ -19,7 +19,7 @@ public class Road {
     }
 
     public void print() {
-        System.out.printf("Destination: %s, Length: %s mi %n",destination, length);
+        System.out.printf("    Destination: %s, Length: %s mi %n",destination, length);
     }
     
     

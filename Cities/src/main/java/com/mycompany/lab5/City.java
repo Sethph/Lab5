@@ -31,6 +31,7 @@ public class City {
         for(Road road : roads){
             road.print();
         }
+        System.out.println("");
     }
 
     public String getName() {
