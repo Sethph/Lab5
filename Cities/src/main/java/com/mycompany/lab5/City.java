@@ -52,13 +52,12 @@ public class City {
         roads.add(road);
     }
 
-    private void write() throws FileNotFoundException {
-        try ( PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream("cities.txt"), "UTF-8"))) {
+    public void write(PrintWriter out) throws FileNotFoundException {
             for(Road road : this.roads){
-                out.printf("%s;%s;%s", name,road.getDestination(),road.getLength());
+                String writeOut = name + ";" + road.getDestination() + ";" + road.getLength();
+                out.write(writeOut);
+                out.println();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            
         }
-    }
 }
